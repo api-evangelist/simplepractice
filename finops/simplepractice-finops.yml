@@ -1,0 +1,126 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: SimplePractice
+providerId: simplepractice
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: true
+tags:
+- Behavioral Health
+- EHR
+- Practice Management
+- SaaS
+- FinOps
+- Cost Management
+description: >-
+  FinOps view of SimplePractice spend. SimplePractice bills a per-account
+  monthly subscription (Starter, Essential, or Plus) plus per-clinician seat
+  charges and per-clinician add-ons (AI Note Taker / Care Aide, ePrescribe),
+  layered with usage-based payment card processing (percentage plus per
+  transaction), per-claim processing fees, and an annual per-clinician CPT
+  licensing fee. This models the cost of running the SimplePractice
+  application; it is NOT API consumption cost - SimplePractice publishes no
+  public metered developer API. SimplePractice Enterprise partnerships,
+  including the partner scheduling integration, are priced by negotiated
+  contract.
+notes: >-
+  Rates reflect the published SimplePractice pricing page; promotional
+  discounts (commonly 50% off for the first three months) and processing
+  fees change - verify during reconciliation.
+sources:
+- https://www.simplepractice.com/pricing/
+- https://www.simplepractice.com/pricing/compare-plans/
+- https://support.simplepractice.com/hc/en-us/articles/115005956266-Subscription-plan-and-pricing-FAQs
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: SimplePractice
+serviceCategory: Practice Management and EHR
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: SimplePractice
+  ServiceCategory: Practice Management and EHR
+  ProviderName: SimplePractice
+  PublisherName: SimplePractice
+  InvoiceIssuerName: SimplePractice
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: subscription
+  description: Monthly per-account plan charge (Starter $49, Essential $79, Plus $99).
+  unit: subscription
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: clinician_seats
+  description: Additional clinician seats (Plus only), tiered $74 / $72 / $69 per clinician per month by count.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - clinician
+- name: practice_manager_seats
+  description: Practice manager seats billed at $39 per manager per month.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+- name: ai_note_taker
+  description: AI Note Taker add-on at $35 per clinician per month.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - clinician
+- name: eprescribe
+  description: ePrescribe add-on at $49 per clinician per month plus a one-time $89 per-clinician setup fee.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - clinician
+- name: card_processing
+  description: Card processing fees at 3.15% plus $0.30 per transaction.
+  unit: transactions
+  aggregation: sum
+  dimensions:
+  - account
+- name: claim_processing
+  description: Insurance claim processing fees from $0.25 per claim.
+  unit: claims
+  aggregation: sum
+  dimensions:
+  - account
+- name: cpt_licensing
+  description: Annual CPT code licensing fee of $20 per clinician per year.
+  unit: clinicians
+  aggregation: sum
+  dimensions:
+  - account
+  - clinician
+principles:
+- name: Visibility
+  description: Track the monthly subscription, clinician and manager seat counts, and add-on charges against the number of active providers.
+- name: Allocation
+  description: Map clinician seats and add-ons to individual providers or locations for group practices.
+- name: Optimization
+  description: Right-size the plan tier, only add AI Note Taker / ePrescribe for clinicians who use them, and factor card and claim processing fees into fee schedules.
+- name: Accountability
+  description: Assign a practice owner to review the SimplePractice invoice monthly, including seat growth and per-transaction processing costs.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

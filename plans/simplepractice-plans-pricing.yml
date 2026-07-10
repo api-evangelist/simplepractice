@@ -1,0 +1,223 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SimplePractice
+providerId: simplepractice
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: true
+tags:
+- Behavioral Health
+- EHR
+- Practice Management
+- Subscription
+- Plans
+description: >-
+  SimplePractice is sold as a per-account SaaS subscription for solo and group
+  behavioral and mental health practices, with three published monthly tiers
+  (Starter, Essential, Plus) and a range of per-clinician add-ons (AI Note
+  Taker / Care Aide, ePrescribe) plus usage-based payment and claim processing
+  fees. This pricing governs use of the SimplePractice application and portal;
+  it is NOT API pricing - SimplePractice does not publish a public developer
+  API, so there are no API plans, quotas, or metered API tiers to describe.
+  Additional clinicians can only be added on the Plus plan.
+notes: >-
+  Prices are the standard published monthly rates from the SimplePractice
+  pricing page; SimplePractice frequently runs a 50% off promotion for the
+  first three months. Add-on and processing fees change - verify current
+  numbers on the pricing page.
+sources:
+- https://www.simplepractice.com/pricing/
+- https://www.simplepractice.com/pricing/compare-plans/
+- https://support.simplepractice.com/hc/en-us/articles/115005956266-Subscription-plan-and-pricing-FAQs
+plans:
+- id: simplepractice-starter
+  name: Starter
+  type: subscription
+  description: >-
+    Entry solo-practitioner plan covering core scheduling, client management,
+    and billing basics.
+  entries:
+  - label: Starter Subscription
+    name: starter
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $49 per month
+    userMultiplied: false
+  elements:
+  - name: Scheduling and Calendar
+  - name: Client Management
+  - name: Billing and Invoicing
+- id: simplepractice-essential
+  name: Essential
+  type: subscription
+  description: >-
+    Mid solo-practitioner plan adding telehealth, reminders, and expanded
+    documentation over Starter.
+  entries:
+  - label: Essential Subscription
+    name: essential
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $79 per month
+    userMultiplied: false
+  elements:
+  - name: Telehealth
+  - name: Appointment Reminders
+  - name: Clinical Documentation
+- id: simplepractice-plus
+  name: Plus
+  type: subscription
+  description: >-
+    Top plan with the full feature set and the only tier that supports adding
+    extra clinicians and practice managers.
+  entries:
+  - label: Plus Subscription
+    name: plus
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $99 per month
+    userMultiplied: false
+  - label: Additional Clinician (2-5)
+    name: additional_clinician_tier1
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $74 per clinician per month
+    userMultiplied: true
+  - label: Additional Clinician (6-15)
+    name: additional_clinician_tier2
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $72 per clinician per month
+    userMultiplied: true
+  - label: Additional Clinician (16+)
+    name: additional_clinician_tier3
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $69 per clinician per month
+    userMultiplied: true
+  - label: Practice Manager
+    name: practice_manager
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $39 per manager per month
+    userMultiplied: true
+  elements:
+  - name: Group Practice Support
+  - name: Additional Clinicians
+  - name: Practice Managers
+- id: simplepractice-addons
+  name: Add-ons and Processing Fees
+  type: usage
+  description: >-
+    Optional per-clinician add-on features and usage-based payment and claim
+    processing fees layered on top of any subscription tier.
+  entries:
+  - label: AI Note Taker
+    name: ai_note_taker
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $35 per clinician per month
+    userMultiplied: true
+  - label: ePrescribe
+    name: eprescribe
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $49 per clinician per month plus a one-time $89 setup fee per clinician
+    userMultiplied: true
+  - label: Card Processing
+    name: card_processing
+    type: usage
+    metric: transaction
+    limit: -1
+    timeFrame: usage
+    geo: us
+    unit: 1
+    price: 3.15% plus $0.30 per transaction
+    userMultiplied: false
+  - label: Claim Processing
+    name: claim_processing
+    type: usage
+    metric: claim
+    limit: -1
+    timeFrame: usage
+    geo: us
+    unit: 1
+    price: from $0.25 per claim
+    userMultiplied: false
+  - label: CPT Licensing
+    name: cpt_licensing
+    type: flat
+    metric: clinician
+    limit: -1
+    timeFrame: year
+    geo: us
+    unit: 1
+    price: $20 per clinician per year
+    userMultiplied: true
+  elements:
+  - name: AI Note Taker
+  - name: ePrescribe
+  - name: Online Payments
+  - name: Insurance Claims
+- id: simplepractice-enterprise
+  name: SimplePractice Enterprise
+  type: enterprise
+  description: >-
+    Partnership tier for EAPs, Managed Care Organizations, and health plans,
+    including the partner-only scheduling API integration. Pricing is not
+    published and is arranged directly with SimplePractice Enterprise.
+  entries:
+  - label: Enterprise Partnership
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact SimplePractice Enterprise
+    userMultiplied: false
+  elements:
+  - name: Enterprise Scheduling Integration
+  - name: In-Network Provider Access
+  - name: Custom Partnership Terms
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

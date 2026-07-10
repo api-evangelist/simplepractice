@@ -1,0 +1,83 @@
+aid: simplepractice
+name: SimplePractice
+review:
+  question: Does SimplePractice expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. SimplePractice does not publish any
+    public developer API - REST or otherwise - so there is no server-push
+    transport (WebSocket or SSE) on a SimplePractice public API to model. The
+    only programmatic surface, the partner-only Enterprise scheduling
+    integration, is undocumented publicly and is described as a
+    request/response scheduling integration, not a realtime bidirectional
+    transport. The client-facing portal (Client Secure Messaging, served under
+    clientsecure.me) is an internal web application, not a documented public
+    WebSocket API.
+findings:
+  summary: |
+    SimplePractice does not publish a documented public WebSocket API, and it
+    does not publish a public developer API of any kind. SimplePractice is a
+    cloud-based behavioral and mental health practice management platform and
+    EHR (scheduling, client management, telehealth, intake and clinical notes,
+    insurance and superbill billing, and a secure client portal). Multiple
+    independent reviews and customer reports confirm there is no developer API,
+    no webhooks, no developer portal, and no way to connect the platform to
+    external tools through official programmatic access. The GitHub
+    organization (github.com/simplepractice) hosts front-end components and
+    internal utilities (Ember/Bootstrap widgets, a Langfuse Ruby SDK, RuboCop
+    config), not API specifications or OpenAPI. The single programmatic surface
+    is the SimplePractice Enterprise scheduling integration (announced
+    September 2022) for EAPs and MCOs, arranged through negotiated partnerships
+    with no public endpoints or docs. No WebSocket (ws:// or wss://) endpoint is
+    documented anywhere.
+  publicApi: |
+    None. As of the review date SimplePractice offers no public, self-serve
+    developer API for clients, appointments, clinical notes, or billing, no
+    webhooks, and no developer portal. Third-party sites advertising a "stable
+    SimplePractice REST API" are unofficial and not backed by any
+    SimplePractice developer program; those claims were not corroborated by any
+    SimplePractice-owned source and are treated as unreliable.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public developer REST API is documented by SimplePractice.
+    - protocol: Partner Integration
+      scheme: https
+      documented: false
+      note: SimplePractice Enterprise scheduling integration for EAPs/MCOs, arranged via partnership; no public endpoints, base URL, or auth published.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere by SimplePractice as of the review date.
+  endpointsModeled: true
+  endpointsConfirmedRest: []
+sources:
+  - url: https://www.simplepractice.com/press/simplepractice-enterprise-launches-api/
+    type: Documentation
+    note: SimplePractice Enterprise API press announcement - partner scheduling integration for EAPs/MCOs, no developer docs or endpoints.
+  - url: https://www.theglobeandmail.com/investing/markets/stocks/ESMT/pressreleases/10168638/simplepractice-enterprise-launches-api-to-expand-access-to-covered-behavioral-health-care/
+    type: PressRelease
+    note: Full press release text - confirms enterprise partnership integration (launched September 2022), not a public developer API.
+  - url: https://github.com/simplepractice
+    type: SourceCode
+    note: GitHub org hosts front-end components and internal utilities; no API specs, OpenAPI, or public API SDKs.
+  - url: https://www.simplepractice.com/pricing/
+    type: Pricing
+    note: Official subscription pricing (Starter/Essential/Plus) plus add-ons; grounds the plans and finops files.
+  - url: https://www.simplepractice.com
+    type: Website
+    note: Product marketing site; no developer or API navigation.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and SimplePractice publishes no
+    public developer API to model. The catalog entry is an honest gated stub:
+    it records the partner-only Enterprise scheduling integration with
+    endpointsModeled set and no fabricated endpoints, and documents the
+    grounded subscription pricing. No AsyncAPI document was created because
+    there is no server-push transport on any public SimplePractice API.
