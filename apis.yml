@@ -60,6 +60,10 @@ apis:
     SimplePractice; access is arranged through negotiated enterprise
     partnerships, so no endpoints are asserted or fabricated here.
 common:
+- type: VulnerabilityDisclosure
+  url: security/simplepractice-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/simplepractice-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/simplepractice
 - type: Website
