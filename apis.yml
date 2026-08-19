@@ -44,7 +44,7 @@ tags:
   - No Public API
 created: '2026-07-10'
 modified: '2026-07-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: simplepractice:simplepractice-enterprise-scheduling-api
     name: SimplePractice Enterprise Scheduling API
