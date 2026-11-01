@@ -1,4 +1,4 @@
-# SimplePractice (simplepractice)
+# SimplePractice
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,87 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SimplePractice is a cloud-based practice management platform and EHR for behavioral and mental health, therapy, and wellness practices. It covers scheduling and calendars, client management, telehealth, intake and clinical documentation, insurance and superbill billing, online payments, and a secure client portal (Client Secure Messaging).
+SimplePractice is a cloud-based practice management platform and EHR for behavioral and mental health, therapy, and wellness practices, covering scheduling, client management, telehealth, intake and clinical documentation, insurance and superbill billing, and a secure client portal (Client Secure Messaging). As of this cataloging, SimplePractice does NOT publish a public, self-serve developer API - there is no developer portal, no documented REST endpoints, no OpenAPI, and no webhooks for third parties. The only programmatic surface is the partner-only SimplePractice Enterprise scheduling integration, which lets EAPs and Managed Care Organizations view in-network provider availability and request appointments; it is delivered through customized partnerships rather than as public developer documentation. Third-party pages that advertise a "stable SimplePractice REST API" for clients, appointments, notes, or billing are unofficial and not backed by any SimplePractice developer program.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/simplepractice/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/simplepractice/refs/heads/main/apis.yml)
+**Areas:** Behavioral Health · Mental Health · Electronic Health Records · Practice Management · Healthcare · Scheduling · Telehealth · HIPAA · Partner API
 
-## Access Model — No Public Developer API
+## SimplePractice on APIs.io
 
-This entry is an honest, gated stub. As of cataloging (2026-07-10), **SimplePractice does not publish a public, self-serve developer API.** Specifically:
+Everything profiled for SimplePractice is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/simplepractice/](https://apis.io/providers/simplepractice/)** — or go straight to one of the APIs or properties below.
 
-- **No developer portal** and **no published API documentation** (there is no `developers.simplepractice.com` or equivalent).
-- **No documented REST endpoints, base URL, authentication scheme, or OpenAPI definition.**
-- **No public webhooks** and no supported programmatic integration for third parties. Customers and reviewers repeatedly note there is no way to connect the platform to external tools via official automation (Zapier/Make/webhooks do not have a useful SimplePractice trigger surface).
-- The **GitHub organization** ([github.com/simplepractice](https://github.com/simplepractice)) hosts front-end components and internal utilities (Ember/Bootstrap widgets, a Langfuse Ruby SDK, shared RuboCop config) — **not** API specs, OpenAPI, or public API SDKs.
+### APIs (1)
 
-The only programmatic surface is the **SimplePractice Enterprise scheduling integration** (announced September 2022). It connects EAPs and Managed Care Organizations (MCOs) to overlapping SimplePractice provider accounts so members and care coordinators can filter in-network behavioral health providers, view real-time availability, and request appointments. It is delivered through **negotiated enterprise partnerships**, with **no public endpoints, documentation, or developer program** — so no endpoints are asserted here (see `endpointsModeled` in `review.yml`).
+- [SimplePractice Enterprise Scheduling API](https://apis.io/apis/simplepractice/simplepractice-enterprise-scheduling-api/) — Partner-only integration announced by SimplePractice Enterprise (September 2022) that connects to overlapping SimplePractice provider accounts so that…
 
-> Caution: Several third-party sites advertise a "stable SimplePractice REST API" for clients, appointments, notes, and billing. These are **unofficial** and are **not** backed by any SimplePractice developer program. They were not corroborated by any SimplePractice-owned source and are treated as unreliable.
+### Published properties
 
-There is **no** public API for the logical domains a developer would want — Clients, Appointments, Clinical Notes, or Billing. If SimplePractice launches a public developer API, this entry should be upgraded from a stub to a full catalog.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Tags
+#### Security (2)
 
-- Behavioral Health
-- Mental Health
-- EHR
-- Practice Management
-- Healthcare
-- Scheduling
-- Telehealth
-- HIPAA
-- Partner API
-- No Public API
+Authentication, trust centre, and vulnerability disclosure.
 
-## Timestamps
+- [Simplepractice Domain Security](https://apis.io/security/simplepractice/simplepractice-domain-security/)
+- [Simplepractice Vulnerability Disclosure](https://apis.io/security/simplepractice/simplepractice-vulnerability-disclosure/)
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+#### Plans and pricing (1)
 
-## APIs
+Published plans, tiers and prices.
 
+- [Simplepractice Plans Pricing](https://apis.io/plans/simplepractice/simplepractice-plans-pricing/)
 
-#### Tags
+#### FinOps (1)
 
-- Scheduling
-- Availability
-- Appointments
-- Behavioral Health
-- Partner API
-- Enterprise
+What the API costs to run, by operation.
 
-## Pricing
+- [Simplepractice Finops](https://apis.io/finops/simplepractice/simplepractice-finops/)
 
-SimplePractice is sold as a per-account monthly SaaS subscription (this is application pricing, not API pricing). Standard published monthly rates:
+## Where to find this API
 
-- **Starter:** $49/month
-- **Essential:** $79/month
-- **Plus:** $99/month (the only tier that supports adding clinicians)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Add-ons and fees:
-
-- **Additional clinicians (Plus only):** $74/mo (2–5), $72/mo (6–15), $69/mo (16+)
-- **Practice Managers:** $39/mo each
-- **AI Note Taker:** $35/mo per clinician
-- **ePrescribe:** $49/mo per clinician plus a one-time $89 setup fee per clinician
-- **Card processing:** 3.15% + $0.30 per transaction
-- **Claim processing:** from $0.25 per claim
-- **CPT licensing:** $20 per clinician per year
-
-SimplePractice frequently runs a 50%-off promotion for the first three months. Verify current numbers on the [pricing page](https://www.simplepractice.com/pricing/).
-
-See [`plans/simplepractice-plans-pricing.yml`](plans/simplepractice-plans-pricing.yml) and [`finops/simplepractice-finops.yml`](finops/simplepractice-finops.yml).
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/simplepractice)
 - [Website](https://www.simplepractice.com)
-- [GitHub Organization](https://github.com/simplepractice)
-- [Documentation](https://www.simplepractice.com/press/simplepractice-enterprise-launches-api/) (Enterprise API announcement — the closest thing to public API docs)
-- [Plans](plans/simplepractice-plans-pricing.yml)
-- [Fin Ops](finops/simplepractice-finops.yml)
+- [Documentation](https://www.simplepractice.com/press/simplepractice-enterprise-launches-api/)
+- [GitHub](https://github.com/simplepractice)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 9.1** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/simplepractice/](https://apis.io/providers/simplepractice/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SimplePractice: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/simplepractice/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
